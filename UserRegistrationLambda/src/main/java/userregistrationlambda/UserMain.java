@@ -40,5 +40,9 @@ public class UserMain {
     	 * calling password method to ensure valid password of minimum 8 characters
     	 */
     	user.password();
+    	/**
+    	 * calling password method to ensure valid password of minimum 8 characters and have at least 1 uppercase
+    	 */
+    	user.password();
     }
 }

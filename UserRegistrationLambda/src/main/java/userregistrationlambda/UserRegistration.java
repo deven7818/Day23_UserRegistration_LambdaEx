@@ -80,13 +80,14 @@ public class UserRegistration {
 	
 	/**
 	 * Method to validate Password
-	 * 1 .password should have minimum 8 Characters
+	 * 1. password should have minimum 8 Characters
+	 * 2. Password should have at least 1 Upper case Character 
 	 */
 	
 	public void password() {
 		System.out.println("Enter Password : ");
 		String Password = sc.next();
-		boolean result = Pattern.matches("^[a-zA-Z0-9]{8,}$", Password);
+		boolean result = Pattern.matches("^(?=.*[A-Z]).{8,}$", Password);
 		if(result)
 			System.out.println("Valid Password");
 		else
