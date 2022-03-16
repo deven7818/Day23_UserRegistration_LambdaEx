@@ -82,8 +82,8 @@ public class UserRegistration {
 	 * Method to validate Password
 	 * 1. password should have minimum 8 Characters
 	 * 2. Password should have at least 1 Upper case Character 
+	 * 3. password should have at least 1 numeric Number in password 
 	 */
-	
 	public void password() {
 		System.out.println("Enter Password : ");
 		String Password = sc.next();

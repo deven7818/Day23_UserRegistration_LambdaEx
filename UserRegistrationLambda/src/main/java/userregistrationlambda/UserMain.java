@@ -10,6 +10,8 @@ package userregistrationlambda;
  * 3. User needs to enter a valid email address
  * 4. User needs to enter a valid mobile Number
  * 5. user needs to enter a valid password of minimum 8 characters
+ * 6. user needs to enter a valid password of minimum 8 characters 1 Upper case
+ * 7. user needs to enter a valid password of minimum 8 characters 1 Upper case and 1 numeric number
  */
 
 public class UserMain {
