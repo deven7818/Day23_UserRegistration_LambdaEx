@@ -13,6 +13,7 @@ package userregistrationlambda;
  * 6. user needs to enter a valid password of minimum 8 characters 1 Upper case
  * 7. user needs to enter a valid password of minimum 8 characters 1 Upper case and 1 numeric number
  * 8. user needs to enter a valid password of minimum 8 characters 1 Upper case and 1 numeric number and have exactly 1 special character
+ * 9. Checking given sample email are valid or invalid
  */
 
 public class UserMain {
@@ -47,5 +48,10 @@ public class UserMain {
     	 * calling password method to ensure valid password of minimum 8 characters and have at least 1 uppercase
     	 */
     	user.password();
+    	/**
+    	 * method to check sample email are valid or invalid
+    	 */
+    	user.sampleEmails();
+    	
     }
 }

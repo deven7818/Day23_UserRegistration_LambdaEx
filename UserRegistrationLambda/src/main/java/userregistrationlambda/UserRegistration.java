@@ -1,6 +1,7 @@
 package userregistrationlambda;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
@@ -95,4 +96,50 @@ public class UserRegistration {
 		else
 			System.out.println("Invalid Password");
 	}	
+	
+	/**
+	 * Method to check given email samples are valid or invalid
+	 * all email samples are passed to array and checking through for loop iteration
+	 * if email passes the regex expression then it is valid email 
+	 * or else Invalid email
+	 */
+	public void sampleEmails() {
+		String[] emails = { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com",
+				"abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com",
+				
+				"abc","abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com",
+				"abc@%*.com", "abc..2002gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a",
+				"abc@gmail.com.aa.au" };
+
+		System.out.println("Checking sample emails for valid or invalid");
+
+		/*
+		 * looping the sample email to check valid or invalid
+		 */
+		for (int i = 0; i < emails.length; i++) {
+			/*
+			 * Defined a expression for validation of email 
+			 * created a pattern and matcher to check sample arrays
+			 */
+			String regex = "^[a-zA-Z0-9]+([._+-]*[0-9A-Za-z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-z]{2,4})?$";
+			Pattern pattern = Pattern.compile(regex);
+			Matcher matcher = pattern.matcher(emails[i]);
+
+			/*
+			 * if email matches the expression then it is valid
+			 */
+			if (matcher.matches()) {
+				System.out.println("Valid Email :" + emails[i]);
+			} 
+
+			/*
+			 * else email not matches the expression then it is invalid
+			 */
+			else {
+				System.out.println("Invalid Emails : " + emails[i]);
+			}
+
+		}
+	}
+
 }
