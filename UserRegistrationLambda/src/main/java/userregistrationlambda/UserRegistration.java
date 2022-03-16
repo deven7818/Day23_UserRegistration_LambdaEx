@@ -77,4 +77,19 @@ public class UserRegistration {
 		else 
 			System.out.println("Invalid.... Please Enter Valid Mobile Number");
 	}
+	
+	/**
+	 * Method to validate Password
+	 * 1 .password should have minimum 8 Characters
+	 */
+	
+	public void password() {
+		System.out.println("Enter Password : ");
+		String Password = sc.next();
+		boolean result = Pattern.matches("^[a-zA-Z0-9]{8,}$", Password);
+		if(result)
+			System.out.println("Valid Password");
+		else
+			System.out.println("Invalid Password");
+	}
 }

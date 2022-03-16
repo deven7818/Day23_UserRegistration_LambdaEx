@@ -8,7 +8,8 @@ package userregistrationlambda;
  * 1. User needs to enter a valid First Name
  * 2. User needs to enter a valid Last Name
  * 3. User needs to enter a valid email address
- * 4. User need to enter a valid mobile Number
+ * 4. User needs to enter a valid mobile Number
+ * 5. user needs to enter a valid password of minimum 8 characters
  */
 
 public class UserMain {
@@ -35,5 +36,9 @@ public class UserMain {
     	 * calling moblieNumber method to ensure valid mobile Number
     	 */
     	user.moblieNumber();
+    	/**
+    	 * calling password method to ensure valid password of minimum 8 characters
+    	 */
+    	user.password();
     }
 }
