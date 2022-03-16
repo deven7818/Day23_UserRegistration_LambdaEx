@@ -61,4 +61,20 @@ public class UserRegistration {
 		else
 			System.out.println("Invalid... Please Enter Valid Email Adderss");
 	}
+	
+	/**
+	 * Method to Enter Mobile Number
+	 * e.g. 91 9876543210 Mobile Number have 2 parts country code and 10 digit number
+	 * if entered mobile number matches the pattern then it gives true value
+	 * else it gives false Invalid mobile Number
+	 */
+	public void moblieNumber() {
+		System.out.println("Enter Mobile Number : ");
+		String Mobile = sc.next();
+		boolean result = Pattern.matches("^[0-9]{1,}\\s[0-9]{10}$", Mobile);
+		if(result)
+			System.out.println("Valid Mobile Number");
+		else 
+			System.out.println("Invalid.... Please Enter Valid Mobile Number");
+	}
 }
