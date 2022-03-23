@@ -3,100 +3,106 @@ package userregistrationlambda;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+
+/**
+ * * PROCEDURE
+ *  1. Method for FirstName validation if exception occurs it throw custom exception
+ *  2. Method for LastName validation
+ *  3. Method for Email validation
+ *  4. Method for Mobile Number validation
+ *  5. Method for Password Validation
+ *  6. Method for multiple email sample validation
+ */
+
 public class UserRegistration {
 
 	/*
 	 * Scanner class object
 	 */
 	Scanner sc = new Scanner(System.in);
+	
 
 	/**
-	 * Method to Enter FirstName 1. First Name should start with capital and has
-	 * minimum 3 characters 2. if entered firstName matches the pattern then it
-	 * gives true value else it gives false Invalid first name
+	 * Method to validate firstName passed the firstName as parameter
 	 * 
-	 * @return - validation of firstName
-	 * 
+	 * @param firstName - firstName of user to validate
+	 * @return - returns the validation of first name with matched condition
+	 * @throws CustomException - if try condition not satisfy then it throw CustomException
 	 */
-	public static boolean firstName() {
-		UserRegistration user = new UserRegistration();
-		System.out.println("Enter First Name : ");
-		String regex = "[A-Z][a-z]{2,}";
-		String firstName = user.sc.next();
-		return Pattern.matches(regex, firstName);
+	public static boolean firstName(String firstName) throws CustomException {
+		try {
+			return Pattern.matches("[A-Z][a-z]{2,}", firstName);
+		} catch (Exception ex) {
+			throw new CustomException("Invalid FirstName");
+
+		}
 	}
 
 	/**
-	 * Method to Enter LastName 1. Last Name should start with capital and has
-	 * minimum 3 characters 2. if entered lastName matches the pattern then it gives
-	 * true value else it gives false Invalid Last name
+	 * Method to validate lastName passed the lastName as parameter
 	 * 
-	 * @return - validation of lastName
+	 * @param lastName - lastName of user to validate
+	 * @return - returns the validation of last name with matched condition
+	 * @throws CustomException - if try condition not satisfy then it throw CustomException
 	 */
-	public static boolean lastName() {
-		UserRegistration user = new UserRegistration();
-		System.out.println("Enter last Name : ");
-		String regex = "[A-Z][a-z]{2,}";
-		String lastName = user.sc.next();
-		return Pattern.matches(regex, lastName);
+	public static boolean lastName(String lastName) throws CustomException {
+		try {
+			return Pattern.matches("[A-Z][a-z]{2,}", lastName);
+		} catch (Exception ex) {
+			throw new CustomException("Invalid lastName");
+
+		}
 	}
 
 	/**
-	 * Method to Enter Email 1. e.g. abc.xyz@bl.co.in Email address has 3 parts
-	 * mandatory and 2 parts optional 2. if entered email matches the pattern then
-	 * it gives true value else it gives false Invalid email address
+	 * Method to validate email passed the email as parameter
 	 * 
-	 * @return - validation of email address
+	 * @param email - email of user to validate
+	 * @return - returns the validation of email with matched condition
+	 * @throws CustomException - if try condition not satisfy then it throw CustomException
 	 */
-	public static boolean email() {
-		UserRegistration user = new UserRegistration();
-		System.out.println("Enter the Email : ");
-		String regex = "^[a-z0-9]+([_+-.][0-9a-z]+)*@[a-z]+.[a-z]{2,3}$";
-		String email = user.sc.next();
-		return Pattern.matches(regex, email);
+	public static boolean email(String email) throws CustomException {
+		try {
+			return Pattern.matches("^[a-z0-9]+([_+-.][0-9a-z]+)*@[a-z]+.[a-z]{2,3}$", email);
+		} catch (Exception ex) {
+			throw new CustomException("Invalid email");
+
+		}
 	}
 
 	/**
-	 * Method to Enter Mobile Number 1. e.g. 91 9876543210 Mobile Number have 2
-	 * parts country code and 10 digit number 2. if entered mobile number matches
-	 * the pattern then it gives true value else it gives false Invalid mobile
-	 * Number
+	 * Method to validate Mobile Number passed the mobileNumber as parameter
 	 * 
-	 * @return - validation of Mobile number
+	 * @param mobileNumber - mobileNumber of user to validate
+	 * @return - returns the validation of mobileNumber with matched condition
+	 * @throws CustomException - if try condition not satisfy then it throw CustomException
 	 */
-	public static boolean moblieNumber() {
-		UserRegistration user = new UserRegistration();
-		System.out.println("Enter Mobile Number : ");
-		String regex = "^[0-9]{1,}\\s{1}[0-9]{10}$";
-		String mobile = user.sc.next();
-		return Pattern.matches(regex, mobile);
+	public static boolean mobileNumber(String mobileNumber) throws CustomException {
+		try {
+			return Pattern.matches("^([0-9]{2}[\\\\s]?){1}[0-9]{9,10}$", mobileNumber);
+		} catch (Exception ex) {
+			throw new CustomException("Invalid Mobile Number");
 
+		}
 	}
 
 	/**
-	 * Method to validate Password 1. password should have minimum 8 Characters 2.
-	 * Password should have at least 1 Upper case Character 3. password should have
-	 * at least 1 numeric Number in password 4. password should have exactly 1
-	 * special character
+	 * Method to validate password passed the password as parameter
 	 * 
-	 * @return - validation of password
+	 * @param password - password of user to validate
+	 * @return - returns the validation of password with matched condition
+	 * @throws CustomException - if try condition not satisfy then it throw
+	 *                         CustomException
 	 */
-	public static boolean password() {
-		UserRegistration user = new UserRegistration();
-		System.out.println("Enter Password : ");
-		String regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]*[\\@\\#\\^][a-zA-Z0-9]*$";
-		String password = user.sc.next();
-		return Pattern.matches(regex, password);
+	public static boolean password(String password) throws CustomException {
+		try {
+			return Pattern.matches("^(?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]*[\\\\@\\\\#\\\\^][a-zA-Z0-9]*$",
+					password);
+		} catch (Exception ex) {
+			throw new CustomException("Invalid Password");
 
+		}
 	}
 
-	/**
-	 * Parameterized Method for Multiple Email validation validation
-	 * 
-	 * @return - mails matches regex
-	 */
-	public static boolean multipleEmails(String mails) {
-		return mails.matches("^[a-zA-Z0-9]+([._+-]*[0-9A-Za-z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-z]{2,4})?$");
-	}
 
 }
