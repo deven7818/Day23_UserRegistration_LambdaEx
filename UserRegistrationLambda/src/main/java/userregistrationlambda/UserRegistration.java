@@ -90,4 +90,13 @@ public class UserRegistration {
 
 	}
 
+	/**
+	 * Parameterized Method for Multiple Email validation validation
+	 * 
+	 * @return - mails matches regex
+	 */
+	public static boolean multipleEmails(String mails) {
+		return mails.matches("^[a-zA-Z0-9]+([._+-]*[0-9A-Za-z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-z]{2,4})?$");
+	}
+
 }
